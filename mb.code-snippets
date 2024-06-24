@@ -1,0 +1,83 @@
+{
+    "New Meta Box": {
+        "scope": "php",
+        "prefix": "mb",
+        "description": "New simple meta box",
+        "body": [
+            "add_filter( 'rwmb_meta_boxes', function( \\$meta_boxes ) {",
+            "    \\$meta_boxes[] = [",
+            "        'title' => '${1:Test}',",
+            "        'fields' => [",
+            "            [",
+            "                'name' => '${2:name}',",
+            "                'id'   => '${2:name}',",
+            "                'type' => '${3|text,autocomplete,background,button-group,button,checkbox-list,checkbox,color,custom-html,date,datetime,divider,fieldset-text,file-advanced,file-input,file-upload,file,heading,hidden,icon,image-advanced,image-select,image-upload,image,key-value,map,number,oembed,osm,password,post,radio,range,select-advanced,select,sidebar,single-image,slider,switch,taxonomy-advanced,taxonomy,text-list,textarea,time,user,video,wysiwyg|}',",
+            "            ],",
+            "        ],",
+            "    ];",
+            "    return \\$meta_boxes;",
+            "} );"
+        ]   
+    },
+    "New Meta Box Field": {
+        "scope": "php",
+        "prefix": "mbf",
+        "description": "New simple meta box field",
+        "body": [
+            "[",
+            "   'name' => '${1:name}',",
+            "   'id'   => '${1:name}',",
+            "   'type' => '${2|text,autocomplete,background,button-group,button,checkbox-list,checkbox,color,custom-html,date,datetime,divider,fieldset-text,file-advanced,file-input,file-upload,file,heading,hidden,icon,image-advanced,image-select,image-upload,image,key-value,map,number,oembed,osm,password,post,radio,range,select-advanced,select,sidebar,single-image,slider,switch,taxonomy-advanced,taxonomy,text-list,text,textarea,time,user,video,wysiwyg|}',",
+            "],",
+        ]
+    },
+    "New block.json file": {
+        "scope": "json",
+        "prefix": "block",
+        "description": "New block.json file",
+        "body": [
+            "{",
+            "    \"\\$schema\": \"https://schemas.wp.org/trunk/block.json\",",
+            "    \"apiVersion\": 3,",
+            "    \"version\": \"1.0.0\",",
+            "    \"name\": \"meta-box/${1:block-name}\",",
+            "    \"title\": \"${2:Block Title}\",",
+            "    \"description\": \"${3:Block Description}\",",
+            "    \"category\": \"${4:common}\",",
+            "    \"icon\": \"${5:art}\",",
+            "    \"render\": \"${6:file:./render.php}\",",
+            "    \"attributes\": {",
+            "        \"${8:name}\": {",
+            "            \"type\": \"${9:string}\",",
+            "            \"default\": \"\",",
+            "        }",
+            "    }",
+            "}"
+        ]
+    },
+    "New block render.php file": {
+        "prefix": "mbbr",
+        "description": "New block render.php file",
+        "body": [
+            "<?php",
+            "/**",
+            " * @var array<string, mixed>[] \\$attributes The block attributes.",
+            " * @var \\WP_Block \\$block The block instance.",
+            " */",
+            "?>",
+            "<div <?= get_block_wrapper_attributes(); ?>>",
+            "    <?= \\$attributes['${1:name}']; ?>",
+            "</div>"
+        ]
+    },
+    "Register block type": {
+        "scope": "php",
+        "prefix": "mbrb",
+        "description": "Register block type",
+        "body": [
+            "add_action( 'init', function() {",
+            "    register_block_type( __DIR__ . '/${1:block-name}' );",
+            "} );"
+        ]
+    }
+}
