@@ -16,5 +16,10 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true
-    }
+    },
+    "rest-client.environmentVariables": {
+        "$shared": {
+            "baseUrl": "http://wp.test/wp-json"
+        }
+    },
 }

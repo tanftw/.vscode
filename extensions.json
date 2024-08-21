@@ -3,6 +3,7 @@
         "gitlens.gitlens",
         "DEVSENSE.intelli-php-vscode",
         "DEVSENSE.phptools-vscode",
-        "tanftw.vsutils"
+        "tanftw.vsutils",
+        "humao.rest-client"
     ]
 }
