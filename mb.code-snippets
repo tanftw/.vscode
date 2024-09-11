@@ -1,7 +1,7 @@
 {
     "New Meta Box": {
         "scope": "php",
-        "prefix": "mb",
+        "prefix": "metabox",
         "description": "New simple meta box",
         "body": [
             "add_filter( 'rwmb_meta_boxes', function( \\$meta_boxes ) {",
@@ -21,7 +21,7 @@
     },
     "New Meta Box Field": {
         "scope": "php",
-        "prefix": "mbf",
+        "prefix": "metafield",
         "description": "New simple meta box field",
         "body": [
             "[",
