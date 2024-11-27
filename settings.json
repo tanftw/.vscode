@@ -19,12 +19,12 @@
     },
     "rest-client.environmentVariables": {
         "$shared": {
-            "baseUrl": "http://wp.test/wp-json",
-            "posts": "http://wp.test/wp-json/wp/v2/posts",
-            "users": "http://wp.test/wp-json/wp/v2/users",
-            "pages": "http://wp.test/wp-json/wp/v2/pages",
-            "blocks": "http://wp.test/wp-json/wp/v2/blocks",
-            "media": "http://wp.test/wp-json/wp/v2/media",
+            "baseUrl": "https://dev.tan.ng/wp-json",
+            "posts": "https://dev.tan.ng/wp-json/wp/v2/posts",
+            "users": "https://dev.tan.ng/wp-json/wp/v2/users",
+            "pages": "https://dev.tan.ng/wp-json/wp/v2/pages",
+            "blocks": "https://dev.tan.ng/wp-json/wp/v2/blocks",
+            "media": "https://dev.tan.ng/wp-json/wp/v2/media",
             
         }
     },
