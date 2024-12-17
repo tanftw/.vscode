@@ -231,6 +231,24 @@
                                 "group"
                             ]
                         },
+                        "options": {
+                            "type": "object",
+                            "description": "Only available when type is select",
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "select"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "options": {
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        },
                         "label_description": {
                             "type": "string"
                         },
