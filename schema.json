@@ -1,24 +1,207 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "Person",
-    "type": "object",
-    "properties": {
-      "name": {
-        "type": "string",
-        "minLength": 1,
-        "description": "The person's name"
+  "$schema": "https://json-schema.org/draft-07/schema",
+   "title": "Meta Box",  
+  "type": "object",
+  "properties": {
+      "id": {
+          "type": "string"
       },
-      "age": {
-        "type": "integer",
-        "minimum": 0,
-        "description": "The person's age"
+      "title": {
+          "type": "string"
       },
-      "gender": {
-        "type": "string",
-        "enum": ["male", "female"],
-        "description": "The person's gender"
-      }
-    },
-    "required": ["name", "age", "gender"]
-  }
-  
+      "status": {
+          "type": "string"
+      },
+      "object_type": {
+          "type": "string"
+      },
+      "post_types": {
+          "type": "array",
+          "items": {
+              "type": "string",
+              "default": "post"
+          }
+      },
+      "context": {
+          "type": "string",
+          "enum": ["normal", "advanced", "side", "form_top", "after_title", "after_editor", "before_permalink"]
+      },
+      "style": {
+          "type": "string",
+          "enum": ["default", "seamless"]
+      },
+      "closed": {
+          "type": "boolean"
+      },
+      "priority": {
+          "type": "string",
+          "enum": ["high", "low"]
+      },
+      "default_hidden": {
+          "type": "boolean"
+      },
+      "autosave": {
+          "type": "boolean"
+      },
+      "media_modal": {
+          "type": "boolean"
+      },
+      "custom_table": {
+          "type": "object",
+          "properties": {
+              "enable": {
+                  "type": "boolean"
+              },
+              "name": {
+                  "type": "string"
+              },
+              "prefix": {
+                  "type": "boolean"
+              },
+              "create": {
+                  "type": "boolean"
+              }
+          },
+          "required": ["enable", "name", "prefix", "create"]
+      },
+      "class": {
+          "type": "string"
+      },
+      "settings": {
+          "type": "object",
+          "properties": {
+          "text_domain": {
+              "type": "string"
+          },
+          "version": {
+              "type": "string"
+          },
+          "function_name": {
+              "type": "string"
+          }
+          },
+          "additionalProperties": true
+      },
+      "fields": {
+          "type": "object",
+          "patternProperties": {
+              "^.*$": {
+                  "type": "object",
+                  "properties": {
+                      "_id": {
+                          "type": "string"
+                      },
+                      "name": {
+                          "type": "string"
+                      },
+                      "id": {
+                          "type": "string"
+                      },
+                      "type": {
+                          "type": "string",
+                          "enum": ["autocomplete","background","button_group","button","checkbox_list","checkbox","color","custom_html","date","datetime","divider","fieldset_text","file_advanced","file_input","file_upload","file","heading","hidden","icon","image_advanced","image_select","image_upload","image","key_value","map","number","oembed","osm","password","post","radio","range","select_advanced","select","sidebar","single_image","slider","switch","taxonomy_advanced","taxonomy","text_list","text","textarea","time","user","video","wysiwyg","group"]
+                      },
+                      "label_description": {
+                          "type": "string"
+                      },
+                      "desc": {
+                          "type": "string"
+                      },
+                      "std": {
+                          "type": "string"
+                      },
+                      "placeholder": {
+                          "type": "string"
+                      },
+                      "size": {
+                          "type": "string"
+                      },
+                      "required": {
+                          "type": "boolean"
+                      },
+                      "disabled": {
+                          "type": "boolean"
+                      },
+                      "readonly": {
+                          "type": "boolean"
+                      },
+                      "prepend": {
+                          "type": "string"
+                      },
+                      "append": {
+                          "type": "string"
+                      },
+                      "datalist_choices": {
+                          "type": "string"
+                      },
+                      "clone": {
+                          "type": "boolean"
+                      },
+                      "sort_clone": {
+                          "type": "boolean"
+                      },
+                      "clone_default": {
+                          "type": "boolean"
+                      },
+                      "clone_as_multiple": {
+                          "type": "boolean"
+                      },
+                      "clone_empty_start": {
+                          "type": "boolean"
+                      },
+                      "min_clone": {
+                          "type": "string"
+                      },
+                      "max_clone": {
+                          "type": "string"
+                      },
+                      "add_button": {
+                          "type": "string"
+                      },
+                      "tooltip": {
+                          "type": "object",
+                          "properties": {
+                              "enable": {
+                                  "type": "boolean"
+                              },
+                              "icon": {
+                                  "type": "string"
+                              },
+                              "position": {
+                                  "type": "string"
+                              },
+                              "content": {
+                                  "type": "string"
+                              }
+                          },
+                          "required": ["enable", "icon", "position", "content"]
+                      },
+                      "hide_from_front": {
+                          "type": "boolean"
+                      },
+                      "before": {
+                          "type": "string"
+                      },
+                      "after": {
+                          "type": "string"
+                      },
+                      "class": {
+                          "type": "string"
+                      },
+                      "sanitize_callback": {
+                          "type": "string"
+                      },
+                      "save_field": {
+                          "type": "boolean",
+                          "default": true
+                      }
+                  },
+                  "required": ["name", "id", "type"]
+              }
+          },
+          "additionalProperties": true
+      },
+      "additionalProperties": true
+  },
+  "required": ["id", "title", "settings", "fields"]
+}
