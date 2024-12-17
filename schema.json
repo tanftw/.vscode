@@ -233,22 +233,7 @@
                         },
                         "options": {
                             "type": "object",
-                            "description": "Only available when type is select",
-                            "if": {
-                                "properties": {
-                                    "type": {
-                                        "const": "select"
-                                    }
-                                }
-                            },
-                            "then": {
-                                "properties": {
-                                    "options": {
-                                        "type": "object"
-                                    }
-                                },
-                                "required": ["options"]
-                            }
+                            "description": "Options of the field. Required for some field types like select, radio, checkbox_list, etc."
                         },
                         "label_description": {
                             "type": "string"
@@ -360,6 +345,36 @@
                         "name",
                         "id",
                         "type"
+                    ],
+                    "allOf": [
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "group"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "required": [
+                                    "fields"
+                                ]
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "enum": ["select", "select_advanced", "radio", "checkbox_list"]
+                                    }
+                                }
+                            },
+                            "then": {
+                                "required": [
+                                    "options"
+                                ]
+                            }
+                        }
                     ]
                 }
             },
@@ -371,5 +386,21 @@
         "id",
         "title",
         "fields"
+    ],
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "geo": {
+                        "type": "object"
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "api_key"
+                ]
+            }
+        }
     ]
 }
